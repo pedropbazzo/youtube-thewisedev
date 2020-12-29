@@ -1,0 +1,192 @@
+.header{
+  display: grid;
+  grid-template-columns: $margin-horizontal 1fr 1fr $margin-horizontal;
+  padding: 30px 0;
+  border-bottom: solid 1px rgba($white, 0.3);
+
+  @media screen and (min-width: #{$screen-lg}px){
+    grid-template-columns: $margin-horizontal-lg 1fr 1fr $margin-horizontal-lg;
+  }
+
+  @media screen and (max-width: #{$screen-sm}px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.logo{
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+  @media screen and (max-width: #{$screen-sm}px){
+   margin-bottom: 30px;
+  }
+}
+
+.socialNav{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  a{
+    @include imgreplace;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 30px;
+
+    &:first-child{
+      margin-left: 0;
+    }
+  }
+}
+
+.github-icon{
+  background-image: url(../assets/images/icon-github.svg);
+}
+
+.youtube-icon{
+  background-image: url(../assets/images/icon-youtube.svg);
+}
+
+.instagram-icon{
+  background-image: url(../assets/images/icon-instagram.svg);
+}
+
+.linkedin-icon{
+  background-image: url(../assets/images/icon-linkedin.svg);
+}
+
+input[type="text"],
+input[type="email"]{
+  padding: 12px 15px;
+  border-radius: 5px;
+  border: 0;
+  color: $darkBlue;
+  width: 100%;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+
+.button{
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: 0;
+  color: $darkBlue;
+  background: $lightBlue;
+  font-weight: $bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all .2s;
+
+  &:not(:disabled):hover{
+    background: lighten($lightBlue, 20);
+  }
+
+  &:disabled{
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  &:active,
+  &:focus{
+    outline: none;
+  }
+
+  &.loading{
+    &:after{
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-left: 10px;
+      border-radius: 50%;
+      vertical-align: text-bottom;
+      border: solid 2px $darkBlue;
+      border-top-color: lighten($darkBlue, 70);
+      animation: spin infinite linear .8s;
+    }
+  }
+}
+
+.successWrap{
+  width: 100%;
+  margin-top: 15px;
+
+  .successMessage{
+    color: $green
+  }
+}
+
+footer{
+  border-top: solid 1px rgba($white, 0.3);
+  padding: 50px 0;
+  text-align: center;
+  display: grid;
+  grid-template-columns: $margin-horizontal 1fr 1fr 1fr $margin-horizontal;
+
+  @media screen and (min-width: #{$screen-lg}px){
+    grid-template-columns: $margin-horizontal-lg 1fr 1fr 1fr $margin-horizontal-lg;
+  }
+
+  @media screen and (max-width: #{$screen-sm}px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tagline{
+    font: 10px Arial;
+    color: $lightBlue;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .signature{
+    font: 12px Arial;
+    color: $lightBlue;
+    display: table;
+    margin: 0 auto;
+    transform: rotate(90deg)
+  }
+}
+
+.footer-logo{
+  @include imgreplace;
+  background: url(../assets/images/logo.svg) left center no-repeat;
+  background-size: contain;
+  width: 150px;
+  height: 50px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+  @media screen and (max-width: #{$screen-sm}px){
+    margin-bottom: 20px;
+  }
+}
+
+.footer-tagline{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: $bold 1.1em $display;
+  color: $lightBlue;
+}
+
+.footer-copyright{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 0.8em $font;
+  color: $white;
+}

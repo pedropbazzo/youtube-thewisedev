@@ -1,0 +1,30 @@
+@mixin imgreplace{
+  font-size: 0;
+  text-indent: -9000px;
+  line-height: 0;
+  overflow: hidden;
+  display: inline-block;
+}
+
+@mixin paragraph($color: $white){
+  font: 1em $font;
+  color: $color;
+
+  p{
+    margin-bottom: 20px;
+  }
+
+  p:last-child{
+    margin-bottom: 0;
+  }
+}
+
+@mixin title($color: $lightBlue){
+  font: $bold 1.5em $display;
+  color: $color;
+  margin: 0 0 30px;
+
+  @media screen and (min-width: #{$screen-lg}px){
+    font-size: 1.8em;
+  }
+}
